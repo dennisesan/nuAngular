@@ -1,0 +1,66 @@
+<p>{{mostrarTitulo}}</p> 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Forma de pago</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Importe</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="g in gastos">
+      <th scope="row">{{$index+1}}</th>
+      <td>{{g.forma_pago}}</td>
+      <td>{{g.descripcion}}</td>
+      <!-- :: Mantiene el valor estatico -->
+      <td>{{::g.importe}}</td>
+      <td>
+      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" ng-click="editar(g)">
+ editar
+</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form>
+	<div class="mb-3">
+	  <label for="importe" class="form-label">Importe</label>
+	  <input type="text" class="form-control" ng-model="form.importe" placeholder="Ingresar importe">
+	</div>
+	<div class="mb-3">
+	  <label for="descripcion" class="form-label">Descripción</label>
+	  <textarea class="form-control" ng-model="form.descripcion" rows="3"></textarea>
+	</div>
+	<div class="mb-3">
+	  <label for="importe" class="form-label">Forma de pago</label>
+	  <select  class="form-control" ng-model="form.forma_pago">
+	  	<option disabled>Seleccione una opción</option>
+	  	<option value="Efectivo">Efectivo</option>
+	  	<option value="Cheque">Cheque</option>
+	  	<option value="Tranferencia">Tranferencia</option>
+	  </select>
+	
+	</div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="actualizar()">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div></form>
+  </div>
+</div>

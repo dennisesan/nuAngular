@@ -1,0 +1,23 @@
+<p>{{tituloCrear}} </p>
+<div  ng-class="class" ng-show="message">{{message}}</div>
+<form>
+	<div class="mb-3">
+	  <label for="importe" class="form-label">Importe</label>
+	  <input type="text" class="form-control" ng-model="form.importe" placeholder="Ingresar importe">
+	</div>
+	<div class="mb-3">
+	  <label for="descripcion" class="form-label">Descripción</label>
+	  <textarea class="form-control" ng-model="form.descripcion" rows="3"></textarea>
+	</div>
+	<div class="mb-3">
+	  <label for="importe" class="form-label">Forma de pago</label>
+	  <select  class="form-control" ng-model="form.forma_pago">
+	  	<option disabled>Seleccione una opción</option>
+	  	<option value="Efectivo">Efectivo</option>
+	  	<option value="Cheque">Cheque</option>
+	  	<option value="Tranferencia">Tranferencia</option>
+	  </select>
+	<button class="btn btn-success" ng-click="crear()">Envíar</button>
+	</div>
+
+</form>
